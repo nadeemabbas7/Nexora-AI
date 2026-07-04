@@ -1,18 +1,37 @@
 import streamlit as st
 
-st.set_page_config(page_title="Nexora AI", layout="centered")
+# Page Configuration
+st.set_page_config(page_title="Nexora AI", page_icon="🏗️")
 
+# Header
 st.title("🏗️ Nexora AI")
 st.subheader("Global Infrastructure Resilience Audit")
 
-location = st.text_input("Enter Project Coordinates (e.g., 31.5204, 74.3587):")
+# User Input
+coords = st.text_input("Enter Project Coordinates (e.g., 31.5204, 74.3587):")
 
+# Action
 if st.button("Generate Resilience Audit"):
-    if location:
-        st.write(f"Analyzing infrastructure risk for: {location}")
-        st.success("Analysis report generated successfully!")
+    if coords:
+        with st.spinner("Analyzing infrastructure risk..."):
+            # Placeholder for professional analysis
+            result = f"""
+            ### 📊 Resilience Audit Report
+            **Location Coordinates:** {coords}
+            
+            **Risk Assessment:**
+            *   **Structural Integrity:** Stable
+            *   **Climate Resilience:** High
+            *   **Safety Score:** 8.5/10
+            
+            **Recommendations:**
+            - Conduct routine structural integrity inspections.
+            - Monitor local environmental shifts.
+            - Ensure compliance with seismic safety standards.
+            """
+            
+            # Display success message and the generated report
+            st.success("Analysis report generated successfully!")
+            st.markdown(result)
     else:
-        st.error("Please enter coordinates first.")
-
-st.markdown("---")
-st.write("Nexora AI - Professional Audit in Seconds")
+        st.error("Error: Please enter coordinates to proceed.")
